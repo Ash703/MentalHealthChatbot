@@ -1,7 +1,7 @@
 from flask import Flask,request, redirect, session,g
 from flask.templating import render_template
 from gensim.parsing.preprocessing import strip_non_alphanum, preprocess_string
-from bot_new import quering
+from Chatbot.chatbot_main import quering
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
@@ -29,6 +29,9 @@ class UserDetails(db.Model):
     emailId = db.Column(db.String(200), nullable = False)
     password = db.Column(db.String(200), nullable = False)
     severity = db.Column(db.Float, nullable = False)
+
+with app.app_context():
+    db.create_all()
 
 # the template based questions
 tempques = [("Are you facing any of these challenges","Anger","Anxiety","Stress","Depression"),

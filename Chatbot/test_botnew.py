@@ -1,5 +1,5 @@
-from bot_new import quering
-from bot_new import predict
+from Chatbot.chatbot_main import quering
+from Chatbot.chatbot_main import predict
 import numpy as np
 import unittest
 
